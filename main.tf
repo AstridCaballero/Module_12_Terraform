@@ -2,26 +2,26 @@ provider "aws" {
   region = "eu-west-2"
 }
 
+variable "cidr_blocks" {
+  description = "cidr blocks and name tags for vpc and subnets"
+  type = list(object({
+    vpc_cidr = string
+    name = string
+  }))
+}
+
 resource "aws_vpc" "development-vpc" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block = var.cidr_blocks[0].cidr_block
   tags = {
-    Name: "development"
+    Name: var.cidr_blocks[0].name
   }
 }
 
 resource "aws_subnet" "dev-subnet-1" {
   vpc_id = aws_vpc.development-vpc.id
-  cidr_block = "10.0.10.0/24"
+  cidr_block = var.cidr_blocks[1].cidr_block
   availability_zone = "eu-west-2a"
   tags = {
-    Name: "subnet-1-dev"
+    Name: var.cidr_blocks[1].name
   }
-}
-
-output "dev-vpc-id" {
-  value = aws_vpc.development-vpc.id
-}
-
-output "dev-subnet-id" {
-  value = aws_subnet.dev-subnet-1.id
 }
