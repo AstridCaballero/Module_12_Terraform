@@ -1,9 +1,9 @@
 #!/usr/bin/env groovy
 
-library identifier: 'jenkins-shared-library@master', retriever: modernSCM(
+library identifier: 'jenkins-shared-library@main', retriever: modernSCM(
   [$class: 'GitSCMSource',
-  remote: 'https://gitlab.com/twn-devops-bootcamp/latest/12-terraform/jenkins-shared-library.git',
-  credentialsId: 'gitlab-credentials'
+  remote: 'git@github.com:AstridCaballero/jenkins-shared-library.git',
+  credentialsId: 'github-credentials' // TODO if this doesn't work maybe I can use https://github.com/AstridCaballero/java-maven-app/blob/Module_8/chapter_15_multibranch/Jenkinsfile
   ]
 )
 
