@@ -11,7 +11,10 @@ variable env_prefix {
   default = "dev"
 }
 variable my_ip {
-  default = "140.228.47.252"
+  default = "140.228.47.252/32"
+}
+variable jenkins_ip {
+  default = "165.22.116.21/32"
 }
 variable instance_type {
   default = "t2.micro"

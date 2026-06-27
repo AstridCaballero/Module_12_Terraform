@@ -13,7 +13,7 @@ pipeline {
     maven 'Maven'
   }
   environment {
-    IMAGE_NAME = 'nanatwn/demo-app:java-maven-2.0'
+    IMAGE_NAME = 'cabfish00/demo-app:java-maven-2.0'
   }
   stages {
     stage("build app") {
@@ -54,6 +54,9 @@ pipeline {
         }
     }
     stage("deploy") {
+      environment {
+         DOCKER_CREDS = credentials('docker-hub-repo')
+      }
       steps {
         script {
           echo "waiting for EC2 server to initialize"
@@ -62,7 +65,7 @@ pipeline {
           echo 'deploying docker image to EC2...'
           echo "${EC2_PUBLIC_IP}"
           
-          def shellCmd = "bash ./server-cmds.sh ${IMAGE_NAME}"
+          def shellCmd = "bash ./server-cmds.sh ${IMAGE_NAME} ${DOCKER_CREDS_USR} ${DOCKER_CREDS_PSW}"
           def ec2Instance = "ec2-user@${EC2_PUBLIC_IP}"
 
           sshagent(['server-ssh-key']) {
