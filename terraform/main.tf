@@ -3,7 +3,7 @@ terraform {
   backend "s3" {
     bucket = "myapp-tf-s3-bucket"
     key = "myapp/state.tfstate"
-    region = "us-west-2" // it doesn't have to be the same region as our TF infra, this is independent
+    region = "eu-west-2" // it doesn't have to be the same region as our TF infra, this is independent
   }
 }
 
