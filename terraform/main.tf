@@ -1,3 +1,12 @@
+terraform {
+  required_version = ">= 0.12"
+  backend "s3" {
+    bucket = "myapp-tf-s3-bucket"
+    key = "myapp/state.tfstate"
+    region = "us-west-2" // it doesn't have to be the same region as our TF infra, this is independent
+  }
+}
+
 provider "aws" {
   region = var.region
 }
