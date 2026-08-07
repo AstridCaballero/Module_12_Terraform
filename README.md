@@ -10,4 +10,4 @@ screenshots of my own work on the terminal and browser. I used AI and I have add
 Notes have been exported into pdf format to be able to get the screenshots (avoiding retaking screenshots which is time-consuming)
 
 You can find original notes for
-- Chapter 14 [here](Module%2012%20-%20chapter%2014_notes.pdf).
+- Chapter 14 [here](Module%2012%20-%20chater%2014_notes.pdf).
