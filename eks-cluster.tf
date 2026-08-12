@@ -22,10 +22,21 @@ module "eks" {
     }
   }
 
+  node_security_group_additional_rules = {
+    ingress_self_all = {
+      description = "Node to node all ports (pod-to-pod / forwarded Service traffic)"
+      protocol    = "-1"
+      from_port   = 0
+      to_port     = 0
+      type        = "ingress"
+      self        = true
+    }
+  }
+
   eks_managed_node_groups = {
     dev = {
       ami_type       = "AL2023_x86_64_STANDARD"
-      instance_types = ["t2.small"]
+      instance_types = ["t3.small"]
 
       min_size     = 1
       max_size     = 3
