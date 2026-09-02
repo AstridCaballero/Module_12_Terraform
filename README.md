@@ -14,8 +14,11 @@ You can find original notes for
 
 ### Description chapter 22 to 24: Complete CI/CD with Terraform
 I created the below branches for this DEMO:
+
 https://github.com/AstridCaballero/Module_12_Terraform/tree/Module_12/Terraform_chapter-22
-https://github.com/AstridCaballero/Module_12_Terraform/tree/Module_12/Terraform_chapter-23 
+
+https://github.com/AstridCaballero/Module_12_Terraform/tree/Module_12/Terraform_chapter-23
+
 https://github.com/AstridCaballero/Module_12_Terraform/blob/Module_12/Terraform_chapter-24
 
 #### Part 1:
